@@ -35,12 +35,15 @@ uint64_t nextPrime(uint64_t value) {
 }
 
 uint64_t sumPrime(uint64_t hbound) {
-    int sum = 0;
-    int i = (hbound - 1);
-    for (i; i > 1; i--) {
-        if (checkPrime(i) == true) {
-            sum += i;
+    uint64_t sum = 0;
+    uint64_t i = (hbound - 1);
+    while (i > 1) {
+        int check = 0;
+        while (check == 0) {
+            check += checkPrime(i);
+            i--;
         }
+        sum += i;
     }
     return sum;
 }
